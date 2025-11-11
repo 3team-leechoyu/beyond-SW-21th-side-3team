@@ -56,4 +56,14 @@ public class Product {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    @Override
+    public String toString() {
+        return "상품 정보   " +
+                "상품 명 : " + name +
+                ", 상품 카테고리 : " + category +
+                ", 가격 : " + price +
+                ", 보유 수량 : " + stock +
+                ", 유통 기한 : " + date;
+    }
 }
