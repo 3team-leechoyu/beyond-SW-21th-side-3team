@@ -100,13 +100,15 @@ public class StoreManager {
     }
 
     public Product buyCategory(Category category){
+        ArrayList<Product> pro = new ArrayList<>();
+        int rand=0;
         for(Product product: p){
-            if(product.getCategory() == category && product.getStock()>=1){
-                product.setStock(product.getStock()-1);
-                return product;
+            if(product.getCategory() == category){
+                pro.add(product);
+                rand = (int) ((Math.random()*pro.size())); //같은 카테고리 중 몇 번재 상품을 구매할지
             }
         }
-        return null;
+        return pro.get(rand);
     }
 
 
