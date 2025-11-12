@@ -1,7 +1,7 @@
 package store.model.dto;
 
 import java.util.EnumMap;
-import java.util.Map;
+
 
 public class Ai {
     private EnumMap<Category, Integer> desire = new EnumMap<>(Category.class);
