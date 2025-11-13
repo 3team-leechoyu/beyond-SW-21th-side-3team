@@ -7,6 +7,7 @@ import store.model.dto.Selling;
 
 public class Application {
     public static void main(String[] args) {
+        System.out.println("테스트");
         /*AiManager aiManager = new AiManager();
         aiManager.buy_ai();         //AI 구매
         aiManager.buy_ai();         //AI 구매
