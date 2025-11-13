@@ -4,11 +4,13 @@ import store.model.dto.Category;
 import store.model.dto.Product;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateInitData {
 
-    public void CreateInitData(List<Product> p){
+    public ArrayList<Product> createInitData(){
+        List<Product> p = new ArrayList<>();
         // 젤리
         p.add(new Product(Category.JELLY, LocalDate.of(2025, 12, 30), "하리보", 1500, 20));
         p.add(new Product(Category.JELLY, LocalDate.of(2026, 3, 15), "젤리데이", 1200, 15));
@@ -73,5 +75,7 @@ public class CreateInitData {
         p.add(new Product(Category.ETC, LocalDate.of(2027, 5, 10), "충전기", 8000, 5));
         p.add(new Product(Category.ETC, LocalDate.of(2028, 3, 1), "건전지", 4000, 10));
         p.add(new Product(Category.ETC, LocalDate.of(2028, 6, 15), "USB 케이블", 5000, 8));
+
+        return p;
     }
 }
