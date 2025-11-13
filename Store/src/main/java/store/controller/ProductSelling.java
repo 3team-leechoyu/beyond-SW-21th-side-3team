@@ -4,12 +4,11 @@ import store.model.dto.Product;
 import store.model.dto.Selling;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class ProductSelling {
-    private ArrayList<Selling> salesHistory = new ArrayList<>();
-
-    public void sellProducts(String input, ArrayList<Product> p) {
+//    private ArrayList<Selling> salesHistory = new ArrayList<>();
+    public void sellProducts(String input, List<Product> p) {
         // 예: "하리보 1, 신라면 2"
         String[] items = input.split(",");
         double totalPrice = 0;
@@ -18,7 +17,6 @@ public class ProductSelling {
         for (String item : items) {
             String[] parts = item.trim().split(" ");
             if (parts.length != 2) continue;
-
             String name = parts[0];
             int quantity;
 
@@ -57,34 +55,36 @@ public class ProductSelling {
 
             //      판매기록 생성
             Selling record = new Selling(
-                    product.getName(),
+                    SellingHistoryManager.id++,
+//                    product.getName(),
+                    LocalDate.now(),
                     product.getCategory(),
                     product.getPrice(),
-                    quantity,
-                    LocalDate.now()
+                    quantity
+
             );
-            salesHistory.add(record);
+//            salesHistory.add(record);
+            SellingHistoryManager.history.add(record);
         }
 
-        // 판매 기록 저장
-        if (soldItems.length() > 0) {
-            soldItems.setLength(soldItems.length() - 2); // 마지막 ", " 제거
-            System.out.println("\n판매 완료: " + soldItems);
-            System.out.println("총 금액: " + totalPrice + "원");
-        } else {
-            System.out.println("판매할 상품이 없습니다.");
-        }
-
-        //판매기록 출력
-        if (!salesHistory.isEmpty()) {
-            System.out.println("\n 판매기록]");
-            for (Selling s : salesHistory) {
-                System.out.println(s);
-            }
-        }
+//        // 판매 기록 저장
+//        if (soldItems.length() > 0) {
+//            soldItems.setLength(soldItems.length() - 2); // 마지막 ", " 제거
+//            System.out.println("\n판매 완료: " + soldItems);
+//            System.out.println("총 금액: " + totalPrice + "원");
+//        } else {
+//            System.out.println("판매할 상품이 없습니다.");
+//        }
+//
+//        //판매기록 출력
+//        if (!salesHistory.isEmpty()) {
+//            System.out.println("\n 판매기록]");
+//            for (Selling s : salesHistory) {
+//                System.out.println(s);
+//            }
+//        }
     }
-
-    public ArrayList<Selling> getSalesHistory() {
-        return salesHistory;
-    }
+//    public ArrayList<Selling> getSalesHistory() {
+//        return salesHistory;
+//    }
 }
