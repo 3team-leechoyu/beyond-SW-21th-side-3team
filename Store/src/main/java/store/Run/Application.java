@@ -15,7 +15,6 @@ public class Application {
         for(Selling s : sellingHistoryManager.getHistory()){
             System.out.println(s.toString());       //구매 기록 확인
             */
-        }
 
 
     }
