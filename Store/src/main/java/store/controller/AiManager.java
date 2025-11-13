@@ -6,6 +6,8 @@ import store.model.dto.Product;
 import store.model.dto.Selling;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static store.controller.SellingHistoryManager.id;
 
@@ -27,7 +29,7 @@ public class AiManager {
         for(int i=0;i<ai.length;i++){
             for(Category c : Category.values()){
                 if(ai[i].getdesire(c)>=70){
-                    Product bought = sm.buyCategory(c);
+                    Product bought = buyCategory(c);
                     int size = (int) ((Math.random()*3)+1);     // 몇 개를 구매할지 (1~3)
 
                     if(bought.getStock()>=size){
@@ -52,5 +54,18 @@ public class AiManager {
         }
         date = date.plusDays(1);
 //        return sum;
+    }
+
+    public Product buyCategory(Category category){
+
+        List<Product> pro = new ArrayList<>();
+        int rand=0;
+//        for(Product product: p){
+//            if(product.getCategory() == category){
+//                pro.add(product);
+//                rand = (int) ((Math.random()*pro.size())); //같은 카테고리 중 몇 번재 상품을 구매할지
+//            }
+//        }
+        return pro.get(rand);
     }
 }
