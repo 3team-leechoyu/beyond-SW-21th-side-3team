@@ -1,6 +1,7 @@
 package store.provider;
 
 import org.apache.ibatis.jdbc.SQL;
+import store.model.dto.Selling;
 
 public class SqlUpdateProvider {
 
@@ -17,6 +18,13 @@ public class SqlUpdateProvider {
                 .SET("menu_category = #{category}")
                 .WHERE("menu_name = #{name}")
                 .toString();
+    }
+    public String updateStock(Selling selling){
+        SQL sql = new SQL();
+        sql.UPDATE("Product");
+        sql.SET("stock = stock - #{count}");
+        sql.WHERE("name = #{name}");
+        return sql.toString();
     }
 
 

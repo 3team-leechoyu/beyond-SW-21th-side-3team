@@ -4,12 +4,15 @@ import store.model.dto.Ai;
 import store.model.dto.Category;
 import store.model.dto.Product;
 import store.model.dto.Selling;
+import store.provider.InsertService;
+import store.provider.SelectService;
+import store.provider.UpdateService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static store.controller.SellingHistoryManager.id;
+
 
 public class AiManager {
     Ai ai [] = new Ai[10];
@@ -24,7 +27,10 @@ public class AiManager {
 
     public void buy_ai(){
         ai_set();
-        SellingHistoryManager shm = new SellingHistoryManager();
+        SelectService ss = new SelectService();
+        InsertService is = new InsertService();
+        UpdateService us = new UpdateService();
+        List<Product> p = ss.selectAllProduct();
         int sum=0;
         for(int i=0;i<ai.length;i++){
             for(Category c : Category.values()){
@@ -36,14 +42,16 @@ public class AiManager {
                         System.out.println(bought.getName()+"(을)를 구매했습니다: ");
 
                         // 판매 기록 저장
-                        shm.history.add(new Selling(id,date,c,bought.getPrice()*size,size));
-
                         System.out.println("가격: " + bought.getPrice()*size + "원");
-//                        sum = sum+bought.getPrice();
+                        Selling historyProduct = new Selling(bought.getCategory(),size,date, bought.getName(),bought.getPrice()*size);
+
+                        us.updateStock(historyProduct);
+
+                        // 재고 기록
                         bought.setStock(bought.getStock()-size);
                         System.out.println("남은 재고: " + bought.getStock());
 
-                        id++; // id 값 증가
+//                        id++; // id 값 증가
                     }
                     else{
                         System.out.println("재고가 부족하여 구매를 못 했습니다.");
@@ -57,15 +65,16 @@ public class AiManager {
     }
 
     public Product buyCategory(Category category){
-
+        SelectService ss = new SelectService();
+        List<Product> p = ss.selectAllProduct();
         List<Product> pro = new ArrayList<>();
         int rand=0;
-//        for(Product product: p){
-//            if(product.getCategory() == category){
-//                pro.add(product);
-//                rand = (int) ((Math.random()*pro.size())); //같은 카테고리 중 몇 번재 상품을 구매할지
-//            }
-//        }
+        for(Product product: p){
+            if(product.getCategory() == category){
+                pro.add(product);
+                rand = (int) ((Math.random()*pro.size())); //같은 카테고리 중 몇 번재 상품을 구매할지
+            }
+        }
         return pro.get(rand);
     }
 }

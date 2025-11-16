@@ -1,7 +1,9 @@
 package store.view;
 
 import store.controller.ProductUpdate;
+import store.controller.SellingHistoryManager;
 import store.controller.StoreManager;
+import store.provider.SelectService;
 
 import java.util.Scanner;
 
@@ -31,7 +33,8 @@ public class StoreMenu {
                         2) 날짜별
                      5. 새상품 등록
                      6. 상품 삭제
-                     7. 프로그램 종료
+                     7. 오늘의 매출 확인
+                     8. 프로그램 종료
                 """;
         System.out.println(menu);
         System.out.println("번호 입력 : ");
@@ -45,10 +48,23 @@ public class StoreMenu {
 
                     break;
                 case 3:
-
+                    updateProductSubMenu();
                     break;
+
+
                 case 4:
 
+                    break;
+                case 5:
+                    break;
+                case 6:
+
+                    break;
+
+                case 7:
+
+                    break;
+                case 8:
                     break;
                 case 9:
 
@@ -61,6 +77,7 @@ public class StoreMenu {
         }while(num != 9);
 
     }
+
     private static void updateProductSubMenu() {
         Scanner sc = new Scanner(System.in);
         ProductUpdate pu = new ProductUpdate();
@@ -79,6 +96,31 @@ public class StoreMenu {
                     break;
                 case 2:
                     pu.inputupdateCategory();
+                    break;
+                default:
+                    System.out.println("잘못 입력하였습니다.");
+
+            }
+
+        }while(true);
+    }
+
+    private static void selectHistorySubMenu(){
+        Scanner sc = new Scanner(System.in);
+        String menu = """
+                1) 품목별
+                2) 날짜별
+                """;
+        SellingHistoryManager shm = new SellingHistoryManager();
+        int num = sc.nextInt();
+        SelectService ss = new SelectService();
+        do{
+            switch (num){
+                case 1:
+                    ss.selectCategoryHistory();
+                    break;
+                case 2:
+                    ss.selectDateHistory();
                     break;
                 default:
                     System.out.println("잘못 입력하였습니다.");
