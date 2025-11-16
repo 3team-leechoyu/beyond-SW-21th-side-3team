@@ -1,5 +1,6 @@
 package store.view;
 
+import store.controller.ProductUpdate;
 import store.controller.StoreManager;
 
 import java.util.Scanner;
@@ -59,6 +60,32 @@ public class StoreMenu {
 
         }while(num != 9);
 
+    }
+    private static void updateProductSubMenu() {
+        Scanner sc = new Scanner(System.in);
+        ProductUpdate pu = new ProductUpdate();
+        String menu= """
+                1) 가격 변경
+                2) 카테고리 변경
+                """;
+
+        System.out.println(menu);
+        System.out.println("번호 입력 : ");
+        int num = sc.nextInt();
+        do{
+            switch (num){
+                case 1:
+                    pu.inputupdatePrice();
+                    break;
+                case 2:
+                    pu.inputupdateCategory();
+                    break;
+                default:
+                    System.out.println("잘못 입력하였습니다.");
+
+            }
+
+        }while(true);
     }
 
 }
