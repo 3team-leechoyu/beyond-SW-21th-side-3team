@@ -2,6 +2,7 @@ package store.provider;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.UpdateProvider;
+import store.model.dto.Selling;
 
 public interface UpdateMapper {
 
@@ -10,4 +11,7 @@ public interface UpdateMapper {
 
     @UpdateProvider(type = SqlUpdateProvider.class, method = "updateCategory")
     int updateCategory(@Param("name")String name, @Param("category") String category);
+
+    @UpdateProvider(type = SqlUpdateProvider.class, method = "updateStock")
+    int updateStock(Selling selling);
 }
