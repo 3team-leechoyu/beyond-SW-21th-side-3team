@@ -9,6 +9,5 @@ public class Application {
         StoreMenu sm = new StoreMenu();
 
         sm.menu();  // 메뉴 실행
-
     }
 }
