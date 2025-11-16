@@ -41,4 +41,17 @@
             AND c.name LIKE CONCAT('%', #{category}, '%')
         </if>
     </select>
+    
+    <insert id="insertProduct" parameterType="com.mybatis.first_function.dto.Product">
+        INSERT INTO product
+        (name, category_id, price, stock, date)
+        VALUES
+        (#{name}, #{categoryId}, #{price}, #{stock}, #{date})
+    </insert>
+
+    <delete id="deleteProduct" parameterType="String">
+        DELETE FROM product
+        WHERE name = #{name}
+    </delete>
+
 </mapper>

@@ -45,4 +45,31 @@ public class ProductService {
     }
 
 
+    public int insertProduct(Product p) {
+        SqlSession sqlSession = getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+
+        int result = mapper.insertProduct(p);
+
+        if(result > 0) {
+            sqlSession.commit();
+            System.out.println("상품이 등록되었습니다.");
+        }
+        else sqlSession.rollback();
+
+        return result;
+    }
+
+    public int deleteProduct(String name) {
+        SqlSession sqlSession = getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+
+        int result = mapper.deleteProduct(name);
+
+        if(result > 0) sqlSession.commit();
+        else sqlSession.rollback();
+
+        sqlSession.close();
+        return result;
+    }
 }

@@ -22,6 +22,6 @@
     </environments>
 
     <mappers>
-        <package name="com.yoocy.proj_code"/>
+        <package name="com.mybatis.first_function"/>
     </mappers>
 </configuration>
