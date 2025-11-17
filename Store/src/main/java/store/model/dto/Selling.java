@@ -6,57 +6,27 @@ public class Selling {
     int id;
     String name;
     LocalDate date;
-    Category category;
+    int categoryId;
     int count;
     int price;
 
-    public Selling(int id, String name,LocalDate date , Category category, int price,int count) {
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.category = category;
-        this.price = price;
-        this.count = count;
-    }
+    public Selling() {}
 
-    public Selling(Category category, int count, LocalDate date, String name, int price) {
-        this.category = category;
+    public Selling(int categoryId, int count, LocalDate date, int id, String name, int price) {
+        this.categoryId = categoryId;
         this.count = count;
         this.date = date;
+        this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public int getId() {
-        return id;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public int getCount() {
@@ -67,6 +37,22 @@ public class Selling {
         this.count = count;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -75,27 +61,12 @@ public class Selling {
         this.name = name;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Selling{" +
-//                "id=" + id +
-//                ", date=" + date +
-//                ", category=" + category +
-//                ", count=" + count +
-//                ", price=" + price +
-//                '}';
-//    }
-@Override
-public String toString() {
-    return "Selling{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", date=" + date +
-            ", category=" + category +
-            ", count=" + count +
-            ", price=" + price +
-            '}';
-}
+    public int getPrice() {
+        return price;
+    }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
 

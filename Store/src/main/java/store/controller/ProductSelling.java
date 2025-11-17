@@ -1,10 +1,10 @@
 package store.controller;
 
 import org.apache.ibatis.session.SqlSession;
-import store.model.dto.Product;
-import store.model.dto.Selling;
 import store.mapper.ProductMapper;
 import store.mapper.SellingMapper;
+import store.model.dto.Product;
+import store.model.dto.Selling;
 import store.model.dto.Template;
 
 import java.time.LocalDate;
@@ -64,13 +64,12 @@ public class ProductSelling {
 
                 // 5. 판매 기록 생성
                 Selling record = new Selling(
-                        0,
-                        // PK 자동
-                        product.getName(),
-                        LocalDate.now(),
-                        product.getCategory(),
-                        quantity,
-                        (int) salePrice
+                        product.getCategoryId(), // 카테고리
+                        quantity ,          // 수량
+                        LocalDate.now(),    // 판매일
+                        0,                  // id (자동증가)
+                        name,               // 상품명
+                        (int) salePrice   // 가격
                 );
 
                 sellingMapper.insertSelling(record);
@@ -78,16 +77,14 @@ public class ProductSelling {
                 System.out.println("✔ 판매됨: " + name + " x " + quantity);
             }
 
-            // 모든 작업 성공 시 COMMIT
             sqlSession.commit();
             System.out.println("\n 총 판매 금액: " + totalPrice + "원");
 
-        }
-//        catch (Exception e) {
-//            System.out.println("판매 중 오류 발생 → ROLLBACK");
-//            e.printStackTrace();
-//            sqlSession.rollback();}
-        finally {
+        } catch (Exception e) {
+            System.out.println("판매 중 오류 발생 → ROLLBACK");
+            e.printStackTrace();
+            sqlSession.rollback();
+        } finally {
             sqlSession.close();
         }
     }

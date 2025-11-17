@@ -23,5 +23,7 @@
 
     <mappers>
         <package name="com.mybatis.first_function"/>
+        <package name="store.mapper"/>
+
     </mappers>
 </configuration>
