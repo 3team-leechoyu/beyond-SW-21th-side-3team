@@ -1,6 +1,7 @@
-package com.mybatis.first_function;
+package store.mapper;
 
-import com.mybatis.first_function.dto.Product;
+
+import store.model.dto.Product;
 
 import java.util.List;
 import java.util.Map;

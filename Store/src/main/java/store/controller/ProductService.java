@@ -1,12 +1,15 @@
-package com.mybatis.first_function;
+package store.controller;
 
-import com.mybatis.first_function.dto.Product;
 import org.apache.ibatis.session.SqlSession;
-import static com.mybatis.first_function.common.Template.getSqlSession;
+import store.mapper.DynamicSqlMapper;
+import store.model.dto.Product;
+
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+
+import static store.model.dto.Template.getSqlSession;
 
 public class ProductService {
 
