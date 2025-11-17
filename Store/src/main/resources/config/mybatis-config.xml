@@ -24,6 +24,6 @@
     <mappers>
 
         <package name="store.mapper"/>
-
+        <package name="store.provider"/>
     </mappers>
 </configuration>

@@ -10,7 +10,7 @@ public interface UpdateMapper {
     int updatePrice(@Param("name") String name, @Param("price") int price);
 
     @UpdateProvider(type = SqlUpdateProvider.class, method = "updateCategory")
-    int updateCategory(@Param("name")String name, @Param("category") String category);
+    int updateCategory(@Param("name")String name, @Param("category_id") int category_id);
 
     @UpdateProvider(type = SqlUpdateProvider.class, method = "updateStock")
     int updateStock(Selling selling);

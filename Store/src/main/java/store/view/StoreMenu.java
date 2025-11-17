@@ -42,11 +42,10 @@ public class StoreMenu {
                 case 3:
                     updateProductSubMenu();
                     break;
-
-
                 case 4:
-
+                    selectHistorySubMenu();
                     break;
+
                 case 5:
                     registerProduct();
                     break;
@@ -55,8 +54,8 @@ public class StoreMenu {
                     break;
 
                 case 7:
+                    return;
 
-                    break;
                 default:
                     System.out.println("잘못 입력하였습니다.");
 
@@ -72,19 +71,24 @@ public class StoreMenu {
         String menu= """
                 1) 가격 변경
                 2) 카테고리 변경
+                0) 메인 메뉴로 돌아가기
                 """;
 
         System.out.println(menu);
-        System.out.println("번호 입력 : ");
+        System.out.print("번호 입력 : ");
         int num = sc.nextInt();
         do{
             switch (num){
                 case 1:
                     pu.inputupdatePrice();
-                    break;
+                    return;
                 case 2:
                     pu.inputupdateCategory();
-                    break;
+                    return;
+
+                case 0:
+                    return;
+
                 default:
                     System.out.println("잘못 입력하였습니다.");
 
@@ -93,30 +97,37 @@ public class StoreMenu {
         }while(true);
     }
 
-    private static void selectHistorySubMenu(){
+
+    private static void selectHistorySubMenu() {
         Scanner sc = new Scanner(System.in);
-        String menu = """
-                1) 품목별
-                2) 날짜별
-                """;
-        SellingHistoryManager shm = new SellingHistoryManager();
-        int num = sc.nextInt();
         SelectService ss = new SelectService();
-        do{
-            switch (num){
+
+        while (true) {
+            System.out.println("""
+                    1) 품목별
+                    2) 날짜별
+                    0) 메인 메뉴로 돌아가기
+                    """);
+            System.out.print("번호 입력 : ");
+            int num = sc.nextInt();
+
+            switch (num) {
                 case 1:
                     ss.selectCategoryHistory();
-                    break;
+                    return;
                 case 2:
                     ss.selectDateHistory();
-                    break;
+                    return;
+                case 0:
+                    return; // 메인 메뉴로 돌아감
                 default:
                     System.out.println("잘못 입력하였습니다.");
-
             }
+        }
 
-        }while(true);
     }
+
+
 
     private void handleSellProducts() {
         ProductSelling ps = new ProductSelling();

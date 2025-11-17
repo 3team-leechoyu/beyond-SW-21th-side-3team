@@ -21,10 +21,10 @@ public class UpdateService {
 
     }
 
-    public void updatecategory(String name, String category) {
+    public void updatecategory(String name, int category_id) {
         SqlSession sqlSession = getSqlSession();
         UpdateMapper mapper = sqlSession.getMapper(UpdateMapper.class);
-        int result = mapper.updateCategory(name,category);
+        int result = mapper.updateCategory(name,category_id);
         if(result > 0) {
             sqlSession.commit();
             System.out.println("메뉴 수정 완료");
