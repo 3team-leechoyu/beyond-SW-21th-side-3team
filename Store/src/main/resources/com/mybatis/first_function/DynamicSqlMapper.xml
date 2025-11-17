@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mybatis.first_function.DynamicSqlMapper">
-    <resultMap id="ProductResultMap" type="com.mybatis.first_function.dto.Product">
+<mapper namespace="store.mapper.DynamicSqlMapper">
+    <resultMap id="ProductResultMap" type="store/model/dto/Product.java">
         <result property="name" column="product_name"/>
         <result property="categoryId" column="category_id"/>
         <result property="categoryName" column="category_name"/>
@@ -42,7 +42,7 @@
         </if>
     </select>
     
-    <insert id="insertProduct" parameterType="com.mybatis.first_function.dto.Product">
+    <insert id="insertProduct" parameterType="store/model/dto/Product.java">
         INSERT INTO product
         (name, category_id, price, stock, date)
         VALUES
