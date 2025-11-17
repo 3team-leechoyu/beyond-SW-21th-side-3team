@@ -75,15 +75,27 @@ public class Selling {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Selling{" +
-                "id=" + id +
-                ", date=" + date +
-                ", category=" + category +
-                ", count=" + count +
-                ", price=" + price +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Selling{" +
+//                "id=" + id +
+//                ", date=" + date +
+//                ", category=" + category +
+//                ", count=" + count +
+//                ", price=" + price +
+//                '}';
+//    }
+@Override
+public String toString() {
+    return "Selling{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", date=" + date +
+            ", category=" + category +
+            ", count=" + count +
+            ", price=" + price +
+            '}';
+}
+
 }
 

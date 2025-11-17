@@ -45,7 +45,7 @@ public class StoreMenu {
 
                     break;
                 case 2:
-
+                    handleSellProducts();
                     break;
                 case 3:
                     updateProductSubMenu();
@@ -128,6 +128,23 @@ public class StoreMenu {
             }
 
         }while(true);
+    }
+
+    private void handleSellProducts() {
+        ProductSelling ps = new ProductSelling();
+
+        System.out.println("\n===== 상품 판매 =====");
+        System.out.println(" 입력 예시: 하리보 1, 신라면 2");
+        System.out.print("판매할 상품을 입력하세요 : ");
+
+        sc.nextLine(); // 버퍼 제거
+        String input = sc.nextLine();
+
+        if (!input.trim().isEmpty()) {
+            ps.sellProducts(input);
+        } else {
+            System.out.println("입력값이 없습니다.");
+        }
     }
 
 }
