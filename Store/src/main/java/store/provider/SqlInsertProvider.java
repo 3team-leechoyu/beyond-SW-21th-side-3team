@@ -8,7 +8,7 @@ public class SqlInsertProvider {
         return new SQL()
                 .INSERT_INTO("Selling")
                 .VALUES("name", "# { name }")
-                .VALUES("category", "# { category }")
+                .VALUES("category", "# { categoryInt }")
                 .VALUES("price", "# { price }")
                 .VALUES("count", "#{ count }")
                 .toString();

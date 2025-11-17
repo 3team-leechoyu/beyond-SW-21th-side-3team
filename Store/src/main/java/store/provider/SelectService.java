@@ -2,17 +2,23 @@ package store.provider;
 
 import org.apache.ibatis.session.SqlSession;
 import store.model.dto.Product;
+import store.model.dto.Selling;
 
 import java.util.List;
+import java.util.Scanner;
 
 import static store.model.dto.Template.getSqlSession;
 
 public class SelectService {
 
     public void selectCategoryHistory(){
+        Scanner sc=new Scanner(System.in);
         SqlSession sqlSession = getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        List<Product> p = mapper.historyCategory();
+        List<Selling> p = mapper.historyCategory();
+
+
+
 
         if(p != null && !p.isEmpty()){
             p.forEach(System.out::println);
@@ -42,5 +48,17 @@ public class SelectService {
     public void selectDateHistory() {
         SqlSession sqlSession = getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        List<Selling> p = mapper.historyDate();
+
+
+
+
+        if(p != null && !p.isEmpty()){
+            p.forEach(System.out::println);
+        } else {
+            System.out.println("검색 결과가 존재하지 않습니다.");
+        }
+        sqlSession.close();
+
     }
 }
