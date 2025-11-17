@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StoreManager {
-    CreateInitData cid = new CreateInitData();
-    List<Product> p = cid.createInitData();
+//    CreateInitData cid = new CreateInitData();
+//    List<Product> p = cid.createInitData();
     Scanner sc = new Scanner(System.in);
     
 }

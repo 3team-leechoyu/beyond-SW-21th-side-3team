@@ -4,25 +4,32 @@ import java.time.LocalDate;
 
 public class Product {
     private String name;
-    private Category category;
+    private int categoryId;
+    private String categoryName; // category.name
     private int price;
     private int stock;
     private LocalDate date;
 
-    public Product(Category category, LocalDate date, String name, int price, int stock) {
-        this.category = category;
-        this.date = date;
+    public Product(){}
+
+    public Product(String name, int categoryId, int price, int stock, LocalDate date) {
         this.name = name;
+        this.categoryId = categoryId;
         this.price = price;
         this.stock = stock;
+        this.date = date;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategoryName() {return categoryName;}
+
+    public void setCategoryName(String categoryName) {this.categoryName = categoryName;}
+
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public LocalDate getDate() {
@@ -61,9 +68,10 @@ public class Product {
     public String toString() {
         return "상품 정보   " +
                 "상품 명 : " + name +
-                ", 상품 카테고리 : " + category +
+                ", 상품 카테고리 : " + categoryName +
                 ", 가격 : " + price +
                 ", 보유 수량 : " + stock +
                 ", 유통 기한 : " + date;
     }
 }
+

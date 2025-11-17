@@ -4,6 +4,7 @@ import store.controller.ProductUpdate;
 import store.controller.SellingHistoryManager;
 import store.controller.StoreManager;
 import store.provider.SelectService;
+import store.controller.ProductSelling;
 
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class StoreMenu {
                        ██╔════╝ ██║   ██║ ██╔════╝
                 ====== ██║      ██║   ██║ ███████╗ ======
                        ██║      ██║   ██║ ╚════██║
-                       ╚██████╗ ╚██████╔╝ ███████║
+                       ╚██████╗ ╚╗ ███ ╔╝ ███████║
                         ╚═════╝  ╚═════╝  ╚══════╝
                      1. 상품 조회
                         1) 카테고리로 검색

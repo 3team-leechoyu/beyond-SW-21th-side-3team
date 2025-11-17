@@ -19,6 +19,7 @@ public class Application {
             System.out.print("""
                       === 메뉴 선택 ===
                       1. 품목 조회
+                      2. 상품 판매
                       5. 새 상품 등록
                       6. 상품 삭제
                       0. 프로그램 종료
@@ -28,12 +29,19 @@ public class Application {
 
             switch (no) {
                 case 1: searchProduct(); break;
+                case 2: buyProduct(); break;
                 case 5: registerProduct(); break;
                 case 6: deleteProduct(); break;
                 case 0:
                     System.out.println("프로그램 종료"); return;
             }
         } while(true);
+    }
+
+    private static void buyProduct() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("판매할 상품을 입력하세요 : ");
+        String productName = sc.nextLine();
     }
 
     private static void deleteProduct() {
