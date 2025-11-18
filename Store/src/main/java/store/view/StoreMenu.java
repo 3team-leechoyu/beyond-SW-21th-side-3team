@@ -29,10 +29,10 @@ public class StoreMenu {
                      6. 상품 삭제
                      7. 프로그램 종료
                 """;
-        System.out.println(menu);
-        System.out.println("번호 입력 : ");
-        int num = sc.nextInt();
         do{
+            System.out.println(menu);
+            System.out.println("번호 입력 : ");
+            int num = sc.nextInt();
             switch (num){
                 case 1:
                     searchProduct(); break;
@@ -61,7 +61,7 @@ public class StoreMenu {
 
             }
 
-        }while(num != 7);
+        }while(true);
 
     }
 
