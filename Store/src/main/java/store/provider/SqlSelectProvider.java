@@ -5,7 +5,7 @@ import org.apache.ibatis.jdbc.SQL;
 
 public class SqlSelectProvider {
 
-    public String historyCategory() {
+    public String historyCategory(@Param("category_id") int category_id) {
         return new SQL()
                 .SELECT("id")
                 .SELECT("category_id AS categoryId")
@@ -14,7 +14,7 @@ public class SqlSelectProvider {
                 .SELECT("count")
                 .SELECT("date")
                 .FROM("Selling")
-                .ORDER_BY("category_id")
+                .WHERE("category_id = #{category_id}")
                 .toString();
     }
 
