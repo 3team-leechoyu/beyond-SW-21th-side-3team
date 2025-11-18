@@ -1,6 +1,7 @@
 package store.provider;
 
 import org.apache.ibatis.session.SqlSession;
+import store.mapper.SelectMapper;
 import store.model.dto.Product;
 import store.model.dto.Selling;
 
@@ -50,9 +51,6 @@ public class SelectService {
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         List<Selling> p = mapper.historyDate();
 
-
-
-
         if(p != null && !p.isEmpty()){
             p.forEach(System.out::println);
         } else {
@@ -60,5 +58,18 @@ public class SelectService {
         }
         sqlSession.close();
 
+    }
+
+    public void selectNameHistory(String name) {
+        SqlSession sqlSession = getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        List<Selling> p = mapper.historyName(name);
+
+        if(p != null && !p.isEmpty()){
+            p.forEach(System.out::println);
+        } else {
+            System.out.println("검색 결과가 존재하지 않습니다.");
+        }
+        sqlSession.close();
     }
 }
