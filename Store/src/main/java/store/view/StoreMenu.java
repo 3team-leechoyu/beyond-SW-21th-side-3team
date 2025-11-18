@@ -114,7 +114,7 @@ public class StoreMenu {
 
             switch (num) {
                 case 1:
-                    ss.selectCategoryHistory();
+                    shm.SellingCategoryHistory();
                     return;
                 case 2:
                     ss.selectDateHistory();

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface SelectMapper {
     @SelectProvider(type = SqlSelectProvider.class , method="historyCategory")
-    List<Selling> historyCategory();
+    List<Selling> historyCategory(@Param("category_id")int category_id);
 
     @SelectProvider(type = SqlSelectProvider.class, method = "allProduct")
     List<Product> allProduct();

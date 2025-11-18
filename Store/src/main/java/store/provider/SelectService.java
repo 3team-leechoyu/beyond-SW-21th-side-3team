@@ -12,11 +12,11 @@ import static store.model.dto.Template.getSqlSession;
 
 public class SelectService {
 
-    public void selectCategoryHistory(){
+    public void selectCategoryHistory(int category_id){
         Scanner sc=new Scanner(System.in);
         SqlSession sqlSession = getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        List<Selling> p = mapper.historyCategory();
+        List<Selling> p = mapper.historyCategory(category_id);
 
 
 
