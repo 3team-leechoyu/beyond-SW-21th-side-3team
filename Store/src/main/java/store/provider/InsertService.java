@@ -1,6 +1,7 @@
 package store.provider;
 
 import org.apache.ibatis.session.SqlSession;
+import store.mapper.InsertMapper;
 import store.model.dto.Selling;
 
 import static store.model.dto.Template.getSqlSession;

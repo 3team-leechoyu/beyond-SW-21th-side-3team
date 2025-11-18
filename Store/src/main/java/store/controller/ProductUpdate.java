@@ -29,7 +29,7 @@ public class ProductUpdate {
         System.out.print("변경할 카테고리를 입력하세요 : ");
         String input = sc.nextLine().toUpperCase();
         Category category = Category.valueOf(input);
-        int category_id = category.ordinal();
+        int category_id = category.ordinal()+1;
         us.updatecategory(name,category_id);
     }
 }

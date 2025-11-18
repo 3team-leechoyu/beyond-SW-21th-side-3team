@@ -1,8 +1,9 @@
-package store.provider;
+package store.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.UpdateProvider;
 import store.model.dto.Selling;
+import store.provider.SqlUpdateProvider;
 
 public interface UpdateMapper {
 

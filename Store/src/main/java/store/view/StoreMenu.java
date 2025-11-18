@@ -101,11 +101,12 @@ public class StoreMenu {
     private static void selectHistorySubMenu() {
         Scanner sc = new Scanner(System.in);
         SelectService ss = new SelectService();
-
+        SellingHistoryManager shm = new SellingHistoryManager();
         while (true) {
             System.out.println("""
                     1) 품목별
                     2) 날짜별
+                    3) 이름으로 검색
                     0) 메인 메뉴로 돌아가기
                     """);
             System.out.print("번호 입력 : ");
@@ -118,6 +119,8 @@ public class StoreMenu {
                 case 2:
                     ss.selectDateHistory();
                     return;
+                case 3:
+                    shm.SellingHistory();
                 case 0:
                     return; // 메인 메뉴로 돌아감
                 default:
