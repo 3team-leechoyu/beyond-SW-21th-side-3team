@@ -14,8 +14,7 @@ public class StoreMenu {
     Scanner sc = new Scanner(System.in);
 
     public void menu(){
-        do{
-            String menu = """
+        String menu = """
                         ██████╗ ██╗   ██╗ ███████╗
                        ██╔════╝ ██║   ██║ ██╔════╝
                 ====== ██║      ██║   ██║ ███████╗ ======
@@ -30,9 +29,10 @@ public class StoreMenu {
                      6. 상품 삭제
                      7. 프로그램 종료
                 """;
-            System.out.println(menu);
-            System.out.println("번호 입력 : ");
-            int num = sc.nextInt();
+        System.out.println(menu);
+        System.out.println("번호 입력 : ");
+        int num = sc.nextInt();
+        do{
             switch (num){
                 case 1:
                     searchProduct(); break;
@@ -61,7 +61,7 @@ public class StoreMenu {
 
             }
 
-        }while(true);
+        }while(num != 7);
 
     }
 
